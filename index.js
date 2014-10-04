@@ -1,0 +1,1 @@
+var lolApi = require('leagueapi');
