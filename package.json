@@ -1,0 +1,36 @@
+{
+  "name": "LegaueApp",
+  "version": "0.0.0",
+  "description": "\"Application to Help Summoners improve their skills.\"",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "fs": "0.0.2",
+    "jsonfile": "^2.0.0",
+    "leagueapi": "^0.4.6",
+    "request": "^2.45.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hibooboo2/LeagueApp.git"
+  },
+  "keywords": [
+    "\"league",
+    "of",
+    "legends",
+    "skill",
+    "improvement\""
+  ],
+  "author": "James Harris",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/hibooboo2/LeagueApp/issues"
+  },
+  "homepage": "https://github.com/hibooboo2/LeagueApp"
+}
