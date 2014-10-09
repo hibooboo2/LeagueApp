@@ -31,8 +31,22 @@ function champsCallback(err, champs) {
 
 //lolApi.getChampions(false, champsCallback);
 
-function downloadPicture() {
-    download.download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function () {
-        console.log('done');
+function allChampHeads(err, champs) {
+    champs.map(function (champ) {
+        lolApi.Static.getChampionById(champ.id, {
+            champData: 'all'
+        }, function (err, champ) {
+            allchamps.push(champ.name);
+            downloadPicture(champ.image.full);
+        });
+    });
+}
+
+lolApi.getChampions(false, allChampHeads);
+
+function downloadPicture(champName) {
+    console.log(champName);
+    download.download(endPoints.championPicturesEndpoint + champName, champName, function () {
+        console.log("Downloaded:" + champName);
     });
 };
