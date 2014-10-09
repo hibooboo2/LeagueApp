@@ -17,8 +17,12 @@ function forward(x, y) {
     })
 }
 
-lolApi.getChampions(false, function (err, champs) {
+function champsCallback(err, champs) {
     champs.map(function (champ) {
-        lolApi.Static.getChampionById(champ.id, options, forward);
+        lolApi.Static.getChampionById(champ.id, {
+            champData: 'all'
+        }, forward);
     });
-});
+}
+
+lolApi.getChampions(false, champsCallback);

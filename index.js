@@ -14,10 +14,6 @@ lolApi.init(apiKey, 'na');
 
 //lolApi.setRateLimit(10, 500);
 
-var options = {
-    champData: 'all'
-};
-
 lolApi.Summoner.getByID(20974566, function (err, summoner) {
     if (!err) {
         console.log(summoner);
