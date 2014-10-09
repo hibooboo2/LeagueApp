@@ -1,9 +1,13 @@
 var apiKey = '4f77067c-ca74-4bdf-8b19-b7cd199f4a05';
 var lolApi = require('leagueapi');
 
-var jf = require('jsonfile')
-var util = require('util')
+var jf = require('jsonfile');
+var util = require('util');
+var endPoints = require('./Riot_CDN_Endpoints.js');
+var download = require('./cdn_Download.js');
 
+//console.log(JSON.stringify(endPoints));
+//endPoints.getChampSplash();
 var file = 'test'
 
 var allchamps = [];
@@ -12,10 +16,10 @@ lolApi.init(apiKey, 'na');
 
 function forward(x, y) {
     allchamps.push(y);
-    jf.writeFile('champData/' + y.name + '.json', y, function (err) {
+    jf.writeFile('champData/' + y.name + '.json ', y, function (err) {
         console.log(y.name)
     })
-}
+};
 
 function champsCallback(err, champs) {
     champs.map(function (champ) {
@@ -23,6 +27,12 @@ function champsCallback(err, champs) {
             champData: 'all'
         }, forward);
     });
-}
+};
 
-lolApi.getChampions(false, champsCallback);
+//lolApi.getChampions(false, champsCallback);
+
+function downloadPicture() {
+    download.download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function () {
+        console.log('done');
+    });
+};
