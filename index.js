@@ -18,7 +18,6 @@ var options = {
     champData: 'all'
 };
 
-/*
 lolApi.Summoner.getByID(20974566, function (err, summoner) {
     if (!err) {
         console.log(summoner);
@@ -30,9 +29,9 @@ lolApi.Static.getItemList(options, function (err, items) {
         console.log(err)
     })
     //console.log(items);
-});*/
+});
 
-/*
+
 lolApi.Init(apiKey); //Will default to NA
 lolApi.Init(apiKey, region);
 
@@ -129,4 +128,4 @@ lolApi.Static.getRuneList(options, region, callback);
 lolApi.Static.getRuneById(id, options, callback);
 
 lolApi.Static.getSummonerSpellList(options, region, callback);
-lolApi.Static.getSummonerSpellById(id, options, callback);*/
+lolApi.Static.getSummonerSpellById(id, options, callback);

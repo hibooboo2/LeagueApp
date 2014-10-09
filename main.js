@@ -9,3 +9,16 @@ var file = 'test'
 var allchamps = [];
 
 lolApi.init(apiKey, 'na');
+
+function forward(x, y) {
+    allchamps.push(y);
+    jf.writeFile('champData/' + y.name + '.json', y, function (err) {
+        console.log(y.name)
+    })
+}
+
+lolApi.getChampions(false, function (err, champs) {
+    champs.map(function (champ) {
+        lolApi.Static.getChampionById(champ.id, options, forward);
+    });
+});
