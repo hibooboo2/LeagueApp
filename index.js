@@ -12,16 +12,16 @@ var allchamps = [];
 
 lolApi.init(apiKey, 'na');
 
-//lolApi.setRateLimit(true, true);
+//lolApi.setRateLimit(10, 500);
 
-options = {
+var options = {
     champData: 'all'
 };
 
 function forward(x, y) {
     allchamps.push(y);
     jf.writeFile('champData/' + y.name + '.json', y, function (err) {
-        console.log(err)
+        console.log(y.name)
     })
 }
 
@@ -32,11 +32,19 @@ lolApi.getChampions(false, function (err, champs) {
 });
 
 
+/*
 lolApi.Summoner.getByID(20974566, function (err, summoner) {
     if (!err) {
         console.log(summoner);
     }
 });
+options = {}
+lolApi.Static.getItemList(options, function (err, items) {
+    jf.writeFile('champData/' + 'items' + '.json', items, function (err) {
+        console.log(err)
+    })
+    //console.log(items);
+});*/
 
 /*
 lolApi.Init(apiKey); //Will default to NA
