@@ -36,17 +36,31 @@ function allChampHeads(err, champs) {
         lolApi.Static.getChampionById(champ.id, {
             champData: 'all'
         }, function (err, champ) {
-            allchamps.push(champ.name);
-            downloadPicture(champ.image.full);
+            allchamps.push(champ);
+            test();
         });
-    });
+    })
+};
+
+function test(err, champs) {
+    console.log(allchamps.map(function (champ) {
+        return champ.recommended.map(function (blocks) {
+            return blocks.blocks.map(function (block) {
+                block.items.map(function (item) {
+                    //                    console.log(item);
+                    console.log(item.id);
+                    return item.id;
+                });
+            })
+        })
+    }));
 }
 
 lolApi.getChampions(false, allChampHeads);
 
 function downloadPicture(champName) {
     console.log(champName);
-    download.download(endPoints.championPicturesEndpoint + champName, champName, function () {
+    download.download(endPoints.itemImages + champName, "TestingBox/Images/Items/" + champName, function () {
         console.log("Downloaded:" + champName);
     });
 };
